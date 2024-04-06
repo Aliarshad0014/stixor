@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -17,6 +18,7 @@
 }
 
 body {
+  font-family: var(--font-family);
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -34,4 +36,17 @@ body {
   .hover-bg-ECEAFF:hover {
     background-color: #ECEAFF;
   }
+
+  .text-custom-color {
+    color: rgba(80, 65, 188, 1);
+  }
+
+  .bg-custom-color {
+    background-color: rgba(80, 65, 188, 1);
+  }
+
+  .icon-color {
+    fill: rgba(80, 65, 188, 1);
+  }
+
 }
