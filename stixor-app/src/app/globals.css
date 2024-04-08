@@ -37,16 +37,35 @@ body {
     background-color: #ECEAFF;
   }
 
-  .text-custom-color {
-    color: rgba(80, 65, 188, 1);
+  .bg-custom-colorr {
+    background-color:rgba(243, 243, 243, 1);
   }
 
   .bg-custom-color {
     background-color: rgba(80, 65, 188, 1);
   }
 
+  .shadow-custom-color {
+    box-shadow: -10px 20px 20px 0px rgba(69, 51, 201, 0.5);
+  }
+
   .icon-color {
     fill: rgba(80, 65, 188, 1);
   }
+
+  .text-colorr {
+    color: rgba(80, 65, 188, 1);
+  }
+
+  .text-color {
+    color: rgba(61, 71, 86, 1)
+  }
+
+  .text-color-new {
+    color: rgba(121, 125, 140, 1)
+  }
+
+
+
 
 }

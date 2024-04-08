@@ -22,9 +22,19 @@ export default function Home() {
     { number: '15', name: 'Team Collaboration', time: '11:00 AM', date: 'Thu 2 Nov', location: 'Bahria Intellectual Village' }
 
   ];
+  const eventOfTheMonth = eventData.reduce((maxEvent, currentEvent) =>
+    parseInt(currentEvent.number) > parseInt(maxEvent.number) ? currentEvent : maxEvent
+  );
 
   return (
-    <main className="flex flex-col min-h-screen bg-gray-100 sm:flex-row">
+    <main>
+      {/* Modal div */}
+      <div className='absolute w-full inset-0 bg-gray-100 opacity-50 flex justify-center items-center'>
+          <div className='bg-black width-[839px] h-[373px] p-4'>
+
+          </div>
+      </div>
+    <div className="flex flex-col min-h-screen bg-gray-100 sm:flex-row">
       <div className="flex items-center justify-evenly w-full mt-20 space-x-6 ">
         {/* Left Div: Navigation */}
         <div className="flex flex-col bg-white p-4 h-[880px] w-[80px] ml-[24px] rounded-full ">
@@ -77,19 +87,31 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* Right Div: Upcoming Events */}
-        <div className="bg-white flex flex-col items-center justify-center h-[624px] w-[380px] mb-56 rounded-xl">
-          <h2 className="font-normal text-gray-900 text-2xl mb-4 self-start">Upcoming Events</h2>          
-          <div className="overflow-y-auto w-[332px]" style={{ maxHeight: "500px" }}>
-            {eventData.map((event, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 mb-4">
-                <p className="font-semibold">{event.name}</p>
-                <p className="font-semibold">{event.date}, {event.time}</p>
-              </div>
-            ))}
+        <div className='flex flex-col'>
+          {/* Right Div: Upcoming Events */}
+          <div className="bg-white flex flex-col items-center justify-center h-[624px] w-[380px] mb-4 rounded-2xl">
+            <h2 className="font-normal text-color text-2xl p-6 self-start">Upcoming Events</h2>
+            <div className="overflow-y-auto w-[332px]" style={{ maxHeight: "500px" }}>
+              {eventData.map((event, index) => (
+                <div key={index} className="bg-white rounded-lg h-14 p-2 mb-4 border border-gray-300 hover-bg-ECEAFF transition-all duration-500 ease-in-out cursor-pointer">
+                  <p className="font-semibold text-md text-color">{event.name}</p>
+                  <p className="font-normal text-xs text-color-new">{event.date}, {event.time}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* event of the month display */}
+          <div className="bg-white flex flex-col items-center justify-center bg-custom-color shadow-xl shadow-custom-color h-[209px] w-[380px] mb-4 rounded-2xl" style={{ backgroundImage: 'url("public/images/bg.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}> 
+          <h2 className="font-bold text-white text-4xl p-4 self-start">Event of <br />the month</h2>
+            <div className="bg-white h-[91px] w-[351px] mb-4 rounded-xl p-4">
+            <p className="text-base text-colorr font-bold mb-2">{eventOfTheMonth.name}</p>
+              <p className="text-sm font-normal">{eventOfTheMonth.date}, {eventOfTheMonth.time}</p>
+            </div>
           </div>
         </div>
+
       </div>
+    </div>
     </main>
   );
 }
